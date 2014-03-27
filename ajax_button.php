@@ -42,7 +42,7 @@ class PlgButtonAjax_button extends JPlugin
 		 * and closes the select frame.
 		 */
 		$js = "
-		function jSelectItem(id, title, catid, object, link, lang)
+		function AjaxSelectItem(id, title, catid, object, link, lang)
 		{
 			var text = '{foo ' + id + '}';
 			jInsertEditorText(text);
@@ -58,7 +58,7 @@ class PlgButtonAjax_button extends JPlugin
 		 * Use the built-in element view to select the article.
 		 * Currently uses blank class.
 		 */
-		$link = 'index.php?option=com_ajax&amp;plugin=ajax_modal&amp;format=raw';
+		$link = 'index.php?option=com_ajax&amp;plugin=ajax_modal&amp;format=raw&amp;function=AjaxSelectItem&amp;component=content';
 
 		$button          = new JObject;
 		$button->modal   = true;
