@@ -58,7 +58,7 @@ class PlgButtonAjax_button extends JPlugin
 		 * Use the built-in element view to select the article.
 		 * Currently uses blank class.
 		 */
-		$link = 'index.php?option=com_ajax&amp;plugin=ajax_modal' . JSession::getFormToken() . '=1';
+		$link = 'index.php?option=com_ajax&amp;plugin=ajax_modal&amp;format=raw';
 
 		$button          = new JObject;
 		$button->modal   = true;
