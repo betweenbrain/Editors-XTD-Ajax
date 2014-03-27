@@ -70,7 +70,7 @@ class plgAjaxAjax_modal extends JPlugin
 			<?php foreach ($this->items as $i => $item) : ?>
 				<tr class="row<?php echo $i % 2; ?>">
 					<td>
-						<a href="javascript:void(0)" onclick="if (window.parent) window.parent.<?php echo htmlspecialchars($function); ?>('<?php echo $item->id; ?>', '<?php echo htmlspecialchars(addslashes($item->title)); ?>', '<?php echo htmlspecialchars($item->catid); ?>', null, '<?php echo htmlspecialchars(ContentHelperRoute::getArticleRoute($item->id, $item->catid, $item->language)); ?>', '', null);">
+						<a href="javascript:void(0)" onclick="if (window.parent) window.parent.<?php echo htmlspecialchars($function); ?>('<?php echo $item->id; ?>', '<?php echo $component; ?>');">
 							<?php echo htmlspecialchars($item->title); ?></a>
 					</td>
 					<td class="center">
