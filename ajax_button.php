@@ -42,9 +42,9 @@ class PlgButtonAjax_button extends JPlugin
 		 * and closes the select frame.
 		 */
 		$js = "
-		function AjaxSelectItem(id, title, catid, object, link, lang)
+		function AjaxSelectItem(id, component)
 		{
-			var text = '{foo ' + id + '}';
+			var text = '{' + component + '-item ' + id + '}';
 			jInsertEditorText(text);
 			SqueezeBox.close();
 		}";
