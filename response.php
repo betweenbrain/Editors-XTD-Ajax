@@ -12,12 +12,7 @@
 <form action="<?php echo JRoute::_('index.php?option=com_ajax&plugin=ajax_modal&format=html&function=AjaxSelectItem&tmpl=component') ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 	<fieldset class="filter clearfix">
 		<div class="filters pull-left">
-			<select name="component" class="input-medium" onchange="this.form.submit()">
-				<option value="">-- Component --</option>
-				<option value="content">Content</option>
-				<option value="k2">K2</option>
-				<option value="zoo">Zoo</option>
-			</select>
+			<?php echo JHtml::_('select.genericlist', $options, 'filter_component', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', $component);?>
 		</div>
 	</fieldset>
 	<table class="table table-striped table-condensed">
