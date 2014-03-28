@@ -9,23 +9,7 @@
  * License    GNU GPL v2 or later
  */
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="templates/isis/css/template.css" type="text/css">
-	<script src="/dev/joomla/3.3-dev/media/jui/js/jquery.min.js" type="text/javascript"></script>
-	<script src="/dev/joomla/3.3-dev/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
-	<script src="/dev/joomla/3.3-dev/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
-
-	</script>
-	<!--[if lt IE 9]>
-	<script src="../media/jui/js/html5.js"></script>
-	<![endif]-->
-</head>
-<body>
-
-<form action="<?php echo JRoute::_('index.php?option=com_ajax&plugin=ajax_modal&format=raw&function=AjaxSelectItem') ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
+<form action="<?php echo JRoute::_('index.php?option=com_ajax&plugin=ajax_modal&format=html&function=AjaxSelectItem') ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 	<fieldset class="filter clearfix">
 		<div class="filters pull-left">
 			<select name="component" class="input-medium" onchange="this.form.submit()">
@@ -69,5 +53,3 @@
 		</tbody>
 	</table>
 </form>
-</body>
-</html>
