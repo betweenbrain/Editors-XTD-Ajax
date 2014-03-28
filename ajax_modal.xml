@@ -12,6 +12,7 @@
 
 	<files>
 		<filename plugin="ajax_modal">ajax_modal.php</filename>
+		<filename>response.php</filename>
 	</files>
 
 	<languages folder="languages">
