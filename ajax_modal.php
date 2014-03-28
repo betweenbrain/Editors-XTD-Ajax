@@ -38,6 +38,9 @@ class plgAjaxAjax_modal extends JPlugin
 		$function  = $this->app->input->getCmd('function', 'jSelectArticle');
 		$component = $this->app->input->getCmd('component', 'content');
 
+		// TODO - implement user states for form filtering - http://docs.joomla.org/Secure_coding_guidelines#Saving_a_request_variable_into_user_state
+		// $this->app->getUserStateFromRequest( <key>, <name>, <default>, <type> );
+
 		switch ($component)
 		{
 			case('content'):
