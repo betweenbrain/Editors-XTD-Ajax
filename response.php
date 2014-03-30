@@ -17,6 +17,13 @@
 	</fieldset>
 	<table class="table table-striped table-condensed">
 		<thead>
+		<?php
+		foreach ($fields as $field) : ?>
+			<th>
+				<?php echo ucfirst($field) ?>
+			</th>
+		<?php endforeach ?>
+		</thead>
 		<tbody>
 		<?php foreach ($this->items as $i => $item) : ?>
 			<tr class="row<?php echo $i % 2; ?>">
