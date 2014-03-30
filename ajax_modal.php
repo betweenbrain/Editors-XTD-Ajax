@@ -48,23 +48,32 @@ class plgAjaxAjax_modal extends JPlugin
 
 		// Construct the query
 		$query = $this->db->getQuery(true);
-		$query->select('*');
+
+		$fields = array(
+			'title',
+			'access',
+			'catid',
+			'created',
+			'id'
+		);
 
 		switch ($component)
 		{
 			case('content'):
-				$query->from($this->db->quoteName('#__content'))
+				$query->select($this->db->quoteName($fields))
+					->from($this->db->quoteName('#__content'))
 					->where($this->db->quoteName('state') . ' = ' . $this->db->quote('1'));
 
 				require_once JPATH_ROOT . '/components/com_content/helpers/route.php';
 				break;
 
 			case('k2'):
-				$query->from($this->db->quoteName('#__k2_items'));
+				$query->select($this->db->quoteName($fields))
+					->from($this->db->quoteName('#__k2_items'));
 				break;
 
 			case('zoo'):
-				$query->select(array('name as title', 'application_id as catid'));
+				$query->select(array('name as title', 'application_id as catid', 'access', 'created', 'id'));
 				$query->from($this->db->quoteName('#__zoo_item'));
 				break;
 		}
