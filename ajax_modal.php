@@ -39,46 +39,45 @@ class plgAjaxAjax_modal extends JPlugin
 		$function  = $this->app->input->get('function', 'AjaxSelectItem');
 		$component = $this->app->getUserStateFromRequest($option . '_filter_component', 'filter_component', 'content', 'string');
 
+		// Supported components, used at plugins/ajax/ajax_modal/response.php:15
 		$options = array(
 			'content' => 'Content',
 			'k2'      => 'K2',
 			'zoo'     => 'Zoo'
 		);
 
+		// Construct the query
+		$query = $this->db->getQuery(true);
+		$query->select('*');
+
 		switch ($component)
 		{
 			case('content'):
-				$query = $this->db->getQuery(true);
-				$query
-					->select('*')
-					->from($this->db->quoteName('#__content'))
+				$query->from($this->db->quoteName('#__content'))
 					->where($this->db->quoteName('state') . ' = ' . $this->db->quote('1'));
 
-				$this->db->setQuery($query);
-
-				$this->items = $this->db->loadObjectList();
-
 				require_once JPATH_ROOT . '/components/com_content/helpers/route.php';
-
 				break;
 
 			case('k2'):
-				$query = $this->db->getQuery(true);
-				$query
-					->select('*')
-					->from($this->db->quoteName('#__k2_items'));
+				$query->from($this->db->quoteName('#__k2_items'));
+				break;
 
-				$this->db->setQuery($query);
-
-				$this->items = $this->db->loadObjectList();
-
+			case('zoo'):
+				$query->select(array('name as title', 'application_id as catid'));
+				$query->from($this->db->quoteName('#__zoo_item'));
 				break;
 		}
 
+		$this->db->setQuery($query);
+		$this->items = $this->db->loadObjectList();
+
+		// Start output buffering
 		ob_start();
 
 		include JPATH_PLUGINS . '/ajax/ajax_modal/response.php';
 
+		// Return output buffer
 		return ob_get_clean();
 	}
 }
