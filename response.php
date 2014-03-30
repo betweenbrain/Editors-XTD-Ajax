@@ -12,7 +12,7 @@
 <form action="<?php echo JRoute::_('index.php?option=com_ajax&plugin=ajax_modal&format=html&function=AjaxSelectItem&tmpl=component') ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 	<fieldset class="filter clearfix">
 		<div class="filters pull-left">
-			<?php echo JHtml::_('select.genericlist', $options, 'filter_component', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', $component);?>
+			<?php echo JHtml::_('select.genericlist', $options, 'filter_component', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', $component); ?>
 		</div>
 	</fieldset>
 	<table class="table table-striped table-condensed">
@@ -29,13 +29,6 @@
 				</td>
 				<td class="center">
 					<?php echo htmlspecialchars($item->catid); ?>
-				</td>
-				<td class="center">
-					<?php if ($item->language == '*'): ?>
-						<?php echo JText::alt('JALL', 'language'); ?>
-					<?php else: ?>
-						<?php echo $item->language_title ? htmlspecialchars($item->language_title) : JText::_('JUNDEFINED'); ?>
-					<?php endif; ?>
 				</td>
 				<td class="center nowrap">
 					<?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_LC4')); ?>
