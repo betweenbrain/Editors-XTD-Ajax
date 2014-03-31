@@ -14,6 +14,10 @@
 		<div class="filters pull-left">
 			<?php echo JHtml::_('select.genericlist', $options, 'filter_component', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', $component); ?>
 		</div>
+		<div class="filters pull-right">
+			<?php echo $this->pagination->getListFooter(); ?>
+			<?php echo $this->pagination->getLimitBox(); ?>
+		</div>
 	</fieldset>
 	<table class="table table-striped table-condensed">
 		<thead>
